@@ -1,4 +1,22 @@
 {
-  "builds": [{ "src": "package.json", "use": "@vercel/static-build" }],
-  "routes": [{ "src": "/(.*)", "dest": "/index.html" }]
-}
+    "builds": [
+      { "src": "package.json", "use": "@vercel/static-build" }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)([^/])$",
+        "status": 308,
+        "headers": {
+          "Location": "/$1$2/"
+        }
+      },
+      {
+        "src": "/(.*)/",
+        "dest": "/$1/index.html"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/$1/index.html"
+      }
+    ]
+  }
