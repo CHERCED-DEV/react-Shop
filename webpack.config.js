@@ -7,7 +7,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
-        publicPath: process.env.VERCEL_URL ? `/${process.env.VERCEL_URL.split('/').pop()}/` : '/'
+        publicPath: process.env.DOMAIN ? `/${process.env.DOMAIN.split('/').pop()}/` : '/'
     },
     mode: 'development',
     resolve: {
